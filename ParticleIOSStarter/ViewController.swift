@@ -21,6 +21,7 @@ class ViewController: UIViewController {
 
     // MARK: Other variables
     var gameScore:Int = 0
+    var randomNumber:Int = 0
 
     
     // MARK: Outlets
@@ -83,7 +84,7 @@ class ViewController: UIViewController {
     
     //MARK: Subscribe to "playerChoice" events on Particle
     func subscribeToParticleEvents() {
-        self.shapesImage.image = UIImage(named: "traingle")
+        
         var handler : Any?
         handler = ParticleCloud.sharedInstance().subscribeToDeviceEvents(
             withPrefix: "playerChoice",
@@ -107,7 +108,17 @@ class ViewController: UIViewController {
         })
     }
     
+    @IBAction func changeImageButton(_ sender: Any) {
+        var imagesArray = ["traingle", "square"]
+        self.randomNumber = Int.random(in: 0..<2)
+        self.shapesImage.image = UIImage(named: imagesArray[randomNumber])
+    }
     
+    @IBAction func drawShapeButton(_ sender: Any) {
+    }
+    
+    @IBAction func rotateShapeButton(_ sender: Any) {
+    }
     
     func turnParticleGreen() {
         
