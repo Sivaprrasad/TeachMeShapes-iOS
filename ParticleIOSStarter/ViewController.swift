@@ -122,6 +122,8 @@ class ViewController: UIViewController {
         var imagesArray = ["traingle", "square"]
         self.randomNumber = Int.random(in: 0..<2)
         self.shapesImage.image = UIImage(named: imagesArray[randomNumber])
+        
+        // reference: stackoverflow.com/questions/26569698/creating-a-random-image-generator-with-swift/52233828
     }
     
     @IBAction func drawShapeButton(_ sender: Any) {
@@ -166,6 +168,12 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func drawShapeButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func showShapeOnParticleButtonPressed(_ sender: Any) {
+    }
     
     @IBAction func testScoreButtonPressed(_ sender: Any) {
         
