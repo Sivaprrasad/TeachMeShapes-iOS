@@ -86,6 +86,7 @@ class ViewController: UIViewController {
     func subscribeToParticleEvents() {
         
         var handler : Any?
+        
         handler = ParticleCloud.sharedInstance().subscribeToDeviceEvents(
             withPrefix: "playerChoice",
             deviceID:self.DEVICE_ID,
@@ -98,11 +99,20 @@ class ViewController: UIViewController {
                 print("got event with data \(event?.data)")
                 let choice = (event?.data)!
                 if (choice == "A") {
+                    if(self.randomNumber == 0){
                     self.turnParticleGreen()
                     self.gameScore = self.gameScore + 1;
+                    }else{
+                        self.turnParticleRed()
+                    }
                 }
                 else if (choice == "B") {
-                    self.turnParticleRed()
+                    if(self.randomNumber == 1){
+                    self.turnParticleGreen()
+                    self.gameScore = self.gameScore + 1;
+                    }else{
+                        self.turnParticleRed()
+                    }
                 }
             }
         })
