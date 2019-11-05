@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
     
+    @IBOutlet weak var shapesImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +83,7 @@ class ViewController: UIViewController {
     
     //MARK: Subscribe to "playerChoice" events on Particle
     func subscribeToParticleEvents() {
+        self.shapesImage.image = UIImage(named: "traingle")
         var handler : Any?
         handler = ParticleCloud.sharedInstance().subscribeToDeviceEvents(
             withPrefix: "playerChoice",
